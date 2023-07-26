@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="CryptoCurrency.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:models="clr-namespace:CryptoCurrency.Models"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:p="clr-namespace:CryptoCurrency.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <StackPanel>
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding SearchingCommand}" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        
+        <TextBlock Text="{x:Static p:Localization.Loading}" Visibility="{Binding LoadingVisibility}"/>
+
+        <StackPanel>
+            <TextBox Text="{Binding Search, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="15 5">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="TextChanged">
+                        <i:InvokeCommandAction Command="{Binding SearchingCommand}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </TextBox>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{x:Static p:Localization.NumberOfEntities}" Margin="0 0 10 0"/>
+                <TextBox Width="50" Text="{Binding NumberOfEntities, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="TextChanged">
+                            <i:InvokeCommandAction Command="{Binding SearchingCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </TextBox>
+            </StackPanel>
+            <ListBox 
+                ItemsSource="{Binding Currencies}"
+                Visibility="{Binding ListBoxVisibility}"
+                x:Name="AssetsListBox">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="SelectionChanged">
+                        <i:InvokeCommandAction
+                            Command="{Binding GoToDetailsCommand}"
+                            CommandParameter="{Binding ElementName=AssetsListBox, Path=SelectedItem.Id}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <ListBox.Resources>
+                    <DataTemplate DataType="{x:Type models:BriefCurrency}">
+                        <Border Padding="15 10 15 10" CornerRadius="10" Style="{StaticResource SecondaryBorder}">
+                            <Grid Width="700">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="{Binding Name}"/>
+                                <TextBlock Text="{Binding Changes}" Grid.Column="1" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.Resources>
+            </ListBox>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

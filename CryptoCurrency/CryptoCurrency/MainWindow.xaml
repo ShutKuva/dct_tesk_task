@@ -1,0 +1,57 @@
+﻿<Window x:Class="CryptoCurrency.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="Transparent">
+    
+    <Border>
+        <StackPanel>
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Loaded">
+                    <i:InvokeCommandAction 
+                            Command="{Binding StartCommand}"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <StackPanel 
+            Orientation="Horizontal"
+            Margin="5">
+                <Button
+                Style="{StaticResource NavigationButton}"
+                Content=" &lt; " 
+                Command="{Binding NavigationService.PreviousViewModel}"
+                IsEnabled="{Binding NavigationService.IsPreviousViewModel}"
+                Padding="3"
+                Margin="0 0 2 0"/>
+                <Button 
+                Style="{StaticResource NavigationButton}"
+                Content=" &gt; "
+                Padding="3"
+                Command="{Binding NavigationService.NextViewModel}"
+                IsEnabled="{Binding NavigationService.IsNextViewModel}"
+                Margin="0 0 10 0"/>
+
+                <ComboBox
+                x:Name="Themes"
+                ItemsSource="{Binding ThemeService.Keys}"
+                SelectedValue="{Binding ThemeService.CurrentKey, Mode=OneWay}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction 
+                            Command="{Binding ThemeService.ChangeThemeCommand}"
+                            CommandParameter="{Binding ElementName=Themes, Path=SelectedValue}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+
+            </StackPanel>
+            <ContentPresenter 
+            Content="{Binding NavigationService.CurrentViewModel, UpdateSourceTrigger=PropertyChanged}"
+            Margin="20 10 20 0"/>
+        </StackPanel>
+    </Border>
+    
+</Window>

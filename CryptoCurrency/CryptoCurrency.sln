@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoCurrency", "CryptoCurrency\CryptoCurrency.csproj", "{65A63703-EA58-4AF5-B033-57E3D8B16262}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{64F83C2F-E482-40FC-82E1-377D126D6DE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{3ACC3B40-1144-43A6-82A8-D7ECE157E6C8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL.Abstractions", "BLL.Abstractions\BLL.Abstractions.csproj", "{367652F2-9B93-43A6-9C5B-BB50FDB9970E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoCurrency.Abstractions", "CryptoCurrency.Abstractions\CryptoCurrency.Abstractions.csproj", "{A97A6FDB-0810-4756-88BD-EECBA93B2F14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65A63703-EA58-4AF5-B033-57E3D8B16262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A63703-EA58-4AF5-B033-57E3D8B16262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A63703-EA58-4AF5-B033-57E3D8B16262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A63703-EA58-4AF5-B033-57E3D8B16262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64F83C2F-E482-40FC-82E1-377D126D6DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F83C2F-E482-40FC-82E1-377D126D6DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F83C2F-E482-40FC-82E1-377D126D6DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F83C2F-E482-40FC-82E1-377D126D6DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3ACC3B40-1144-43A6-82A8-D7ECE157E6C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3ACC3B40-1144-43A6-82A8-D7ECE157E6C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3ACC3B40-1144-43A6-82A8-D7ECE157E6C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3ACC3B40-1144-43A6-82A8-D7ECE157E6C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{367652F2-9B93-43A6-9C5B-BB50FDB9970E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{367652F2-9B93-43A6-9C5B-BB50FDB9970E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{367652F2-9B93-43A6-9C5B-BB50FDB9970E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{367652F2-9B93-43A6-9C5B-BB50FDB9970E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97A6FDB-0810-4756-88BD-EECBA93B2F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97A6FDB-0810-4756-88BD-EECBA93B2F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97A6FDB-0810-4756-88BD-EECBA93B2F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97A6FDB-0810-4756-88BD-EECBA93B2F14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E8E6B508-1A5E-4F23-856C-61DC97B2D08B}
+	EndGlobalSection
+EndGlobal
